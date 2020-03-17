@@ -106,3 +106,76 @@ function mostraNome({ nome, idade }){
 }
 
 mostraNome(usuario);
+
+//rest, pegar o resto das propriedades
+const user = {
+    name:'Diego',
+    idade:25,
+    empresa:'Rockeseat',
+};
+
+const { name, ...resto } = user;
+
+console.log(name);
+console.log(resto);
+
+
+//com array
+const arr2 = [1,2,3,4,5,6];
+const [ a , b , ...c] = arr2;
+
+console.log(a);
+console.log(b);
+console.log(c);
+
+//podemos usar em funcao
+function soma(...params){
+    return params.reduce((total,next) => total + next);
+}
+
+console.log(soma(1,2,3,4));
+
+function sobra(a, b, ...param){
+    console.log(a,b,param);
+}
+
+
+sobra(1,2,3,4,4,6,7);
+
+
+//usando o spread operator
+const arrMeu = [1,2,3];
+const arrSeu = [4,5,6];
+
+const arrNosso = [ ...arrMeu, ...arrSeu ];
+
+console.log(arrNosso);
+
+//outro uso para o spread
+const usuario1 = {
+    name: 'Diego',
+    idade: 23,
+    empresa: 'Rocketseat',
+};
+
+//copia todo objeto e muda uma variavel de interesse
+const usuario2 = { ...usuario1, name: 'Mateus'};
+
+console.log(usuario2);
+
+const name1 = 'Mateus';
+const idade1 = 23;
+
+console.log(`Meu nome é ${name1} e tenho ${idade1} anos`);
+
+const n = 'Mateus';
+const i = 23;
+
+//short syntax
+const user2 = {
+    n,
+    i,
+    empresa: 'Rocketseat'
+};
+
+console.log(user2);
